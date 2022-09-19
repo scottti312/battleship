@@ -3,12 +3,12 @@ const Coords = (row, column) => {
 }
 
 class Ship {
-  constructor(length, headCoords, orientation, sunk = false) {
+  constructor(length, headCoords, orientation) {
     this.length = length;
     this.headCoords = headCoords;
-    this.hits = new Array(length).fill(0);
     this.orientation = orientation;
-    this.sunk = sunk;
+    this.hits = new Array(length).fill(0);
+    this.sunk = false;
   }
 
   hit(coords) {
@@ -38,6 +38,14 @@ class Ship {
       this.hits[this.headCoords.column - coords.column] = 1;
     if (this.orientation === 'vertical')
       this.hits[coords.row - this.headCoords.row] = 1;
+  }
+
+  isSunk() {
+    for (let i = 0; i < this.length; i++) {
+      if (this.hits[i] == 0)
+        return false;
+    }
+    return true;
   }
 }
 export { Coords, Ship };
