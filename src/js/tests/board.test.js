@@ -1,4 +1,4 @@
-import { initializeBoard } from '../board';
+import { initializeBoard } from '../game/board';
 
 test('Empty 10x10 board created', () => {
   expect(initializeBoard()).toStrictEqual([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
