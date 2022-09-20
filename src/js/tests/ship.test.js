@@ -20,6 +20,15 @@ test('Hit horizontal edges registered', () => {
   expect(testShip.hits).toEqual([1, 0, 0, 0, 1]);
 })
 
+test('Hit horizontal middle registered', () => {
+  let length = 5;
+  let row = 6;
+  let column = 6;
+  let testShip = new Ship(length, Coords(row, column), 'horizontal');
+  testShip.hit(Coords(6, 5));
+  expect(testShip.hits).toEqual([0, 0, 0, 1, 0]);
+});
+
 test('Sink horizontal ship', () => {
   let length = 5;
   let row = 6;
@@ -78,6 +87,16 @@ test('Hit vertical edges registered', () => {
   expect(testShip.hits).toEqual([1, 0, 0, 1]);
 });
 
+test('Hit vertical middle registered', () => {
+  let length = 4;
+  let row = 2;
+  let column = 2;
+  let testShip = new Ship(length, Coords(row, column), 'vertical');
+  testShip.hit(Coords(3, 2));
+  expect(testShip.hits).toEqual([0, 1, 0, 0]);
+
+});
+
 test('Sink vertical ship', () => {
   let length = 4;
   let row = 2;
@@ -113,4 +132,3 @@ test('Miss vertical edges not registered', () => {
   testShip.hit(Coords(3, 1));
   expect(testShip.hits).toEqual([0, 0, 0, 0]);
 });
-
