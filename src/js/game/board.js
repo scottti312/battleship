@@ -7,13 +7,11 @@ class Board {
       arr[i] = new Array(10).fill(0);
     }
     this.board = arr;
+    this.allSunk = false;
+    this.ships = [];
   }
 
   placeShip(ship) {
-    this.placeShipBoardChange(ship);
-  }
-
-  placeShipBoardChange(ship) {
     let row = ship.headCoords.row;
     let column = ship.headCoords.column;
     if (ship.orientation === 'horizontal') {
@@ -24,6 +22,18 @@ class Board {
     if (ship.orientation === 'vertical') {
       for (let i = row; i < row + ship.length; i++) {
         this.board[i][column] = 1;
+      }
+    }
+    this.ships.push(ship);
+  }
+
+
+  receiveAttack(coords) {
+    let column = coords.column;
+    let row = coords.row;
+    for (const ship of this.ships) {
+      if (ship.hit(coords)) {
+        this.board[row][column] = 2;
       }
     }
   }
