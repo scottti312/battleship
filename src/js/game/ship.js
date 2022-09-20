@@ -34,8 +34,10 @@ class Ship {
   }
 
   addToHits(coords) {
+    // if (this.orientation === 'horizontal')
+    //   this.hits[this.headCoords.column - coords.column] = 1;
     if (this.orientation === 'horizontal')
-      this.hits[this.headCoords.column - coords.column] = 1;
+      this.hits[this.length - (this.headCoords.column - coords.column) - 1] = 1;
     if (this.orientation === 'vertical')
       this.hits[coords.row - this.headCoords.row] = 1;
   }
