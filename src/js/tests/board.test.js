@@ -69,3 +69,23 @@ test('Hit horizontal ship', () => {
   expect(testShip.hits).toStrictEqual([0, 1, 0, 0, 0]);
 });
 
+
+test('Miss horizontal ship', () => {
+  let testBoard = new Board();
+  let testShip = new Ship(5, Coords(7, 8), 'horizontal');
+  testBoard.placeShip(testShip);
+  testBoard.receiveAttack(Coords(7, 5));
+  testBoard.receiveAttack(Coords(6, 4));
+  expect(testBoard.board).toStrictEqual([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 3, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 2, 1, 1, 1, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]);
+  expect(testShip.hits).toStrictEqual([0, 1, 0, 0, 0]);
+});
