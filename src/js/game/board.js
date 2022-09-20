@@ -31,11 +31,17 @@ class Board {
   receiveAttack(coords) {
     let column = coords.column;
     let row = coords.row;
+    let hit = false;
     for (const ship of this.ships) {
       if (ship.hit(coords)) {
         this.board[row][column] = 2;
+        hit = true;
       }
     }
+    if (!hit) {
+      this.board[row][column] = 3;
+    }
+
   }
 }
 
