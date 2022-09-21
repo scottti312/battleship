@@ -31,8 +31,6 @@ class Ship {
   }
 
   addToHits(coords) {
-    // if (this.orientation === 'horizontal')
-    //   this.hits[this.headCoords.column - coords.column] = 1;
     if (this.orientation === 'horizontal')
       this.hits[this.length - (this.headCoords.column - coords.column) - 1] = 1;
     if (this.orientation === 'vertical')
@@ -47,4 +45,5 @@ class Ship {
     return true;
   }
 }
+
 export { Coords, Ship };
