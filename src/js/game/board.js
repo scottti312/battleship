@@ -1,5 +1,3 @@
-import { Ship, Coords } from './ship';
-
 class Board {
   constructor() {
     const arr = new Array(10);
