@@ -1,6 +1,4 @@
-const Coords = (row, column) => {
-  return { row, column };
-}
+import Coords from './coords';
 
 class Ship {
   constructor(length, headCoords, orientation) {
