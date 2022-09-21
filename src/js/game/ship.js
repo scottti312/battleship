@@ -8,7 +8,6 @@ class Ship {
     this.headCoords = headCoords;
     this.orientation = orientation;
     this.hits = new Array(length).fill(0);
-    this.sunk = false;
   }
 
   hit(coords) {
