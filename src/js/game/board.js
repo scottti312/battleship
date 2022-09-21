@@ -38,10 +38,29 @@ class Board {
         hit = true;
       }
     }
+    if (this.allShipsSunk()) {
+      this.gameOver();
+    }
     if (!hit) {
       this.board[row][column] = 3;
     }
+  }
 
+  allShipsSunk() {
+    let numberSunk = 0;
+    for (const ship of this.ships) {
+      if (ship.isSunk()) {
+        numberSunk++;
+      }
+    }
+    if (numberSunk == this.ships.length) {
+      return true;
+    }
+    return false;
+  }
+
+  gameOver() {
+    console.log('Game Over!');
   }
 }
 
