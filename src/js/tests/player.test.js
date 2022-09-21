@@ -44,5 +44,9 @@ test('Random attack one place left', () => {
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
     [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]]);
+});
 
-})
+test('Computer place random ships', () => {
+  let testPlayer = new Player();
+  expect(testPlayer.computerPlaceShips()).toBe(true);
+});
