@@ -25,7 +25,6 @@ class Board {
     this.ships.push(ship);
   }
 
-
   receiveAttack(coords) {
     let column = coords.column;
     let row = coords.row;
