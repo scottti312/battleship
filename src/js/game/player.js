@@ -12,9 +12,11 @@ class Player {
     let position = Coords(positionArr[0], positionArr[1]);
     let orientation = this.randomOrientation();
 
-    while ((orientation == 'vertical' && position[0] > (9 - length)) ||
-      (orientation == 'horizontal' && position[1] < length) ||
-      (this.board.board[position.row][position.column] > 1)) {
+    // Generate new position if headCoords are invalid
+    // (Occupied or overlapping length of ship)
+    while ((orientation == 'vertical' && (9 - position.row) < length) ||
+      (orientation == 'horizontal' && position.column < length) ||
+      (this.board.board[position.row][position.column] > 0)) {
       positionArr = this.generateRandomCoord();
       position = Coords(positionArr[0], positionArr[1]);
     }
@@ -47,7 +49,7 @@ class Player {
   }
 
   randomOrientation() {
-    let orientation = Math.floor(Math.random());
+    let orientation = Math.floor(Math.random() * 2);
     if (orientation == 1) {
       return 'horizontal';
     }
