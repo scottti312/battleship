@@ -50,7 +50,7 @@ class Board {
         numberSunk++;
       }
     }
-    if (numberSunk == this.ships.length) {
+    if (this.ships.length > 0 && numberSunk == this.ships.length) {
       return true;
     }
     return false;
