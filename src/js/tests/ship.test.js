@@ -1,4 +1,5 @@
-import { Coords, Ship } from '../game/ship';
+import Ship from '../game/ship';
+import Coords from '../game/coords';
 
 test('Hit horizontal edges', () => {
   let length = 5;
