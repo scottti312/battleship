@@ -9,6 +9,7 @@ class Board {
     this.ships = [];
   }
 
+  // 1 = ship, 2 = hitship, 3 = miss
   placeShip(ship) {
     let row = ship.headCoords.row;
     let column = ship.headCoords.column;
@@ -61,4 +62,4 @@ class Board {
   }
 }
 
-export { Board };
+export default Board;
