@@ -1,5 +1,3 @@
-import Coords from './coords';
-
 class Ship {
   constructor(length, headCoords, orientation) {
     this.length = length;
@@ -46,4 +44,4 @@ class Ship {
   }
 }
 
-export { Coords, Ship };
+export default Ship;
