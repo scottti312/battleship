@@ -1,5 +1,5 @@
-import { Board } from '../game/board';
-import { Ship } from '../game/ship';
+import Board from '../game/board';
+import Ship from '../game/ship';
 import Coords from '../game/coords';
 
 test('Empty 10x10 board created', () => {
