@@ -14,16 +14,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      },
-      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
@@ -48,18 +38,5 @@ module.exports = {
       template: './src/template.html',
     })
   ],
-  resolve: {
-    alias: {
-      config$: './configs/app-config.js',
-      react: './vendor/react-master',
-    },
-    extensions: ['', 'js', 'jsx'],
-    modules: [
-      'node_modules',
-      'bower_components',
-      'shared',
-      '/shared/vendor/modules',
-    ],
-  },
 }
 
