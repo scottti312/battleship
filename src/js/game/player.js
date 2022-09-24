@@ -11,7 +11,6 @@ class Player {
     for (let i = 2; i < 6; i++) {
       this.computerPlaceShip(i);
     }
-    console.log(this.board.ships);
     return true;
   }
 
@@ -37,19 +36,21 @@ class Player {
   }
 
   checkCollide(length, position, orientation) {
-    console.log(this.board.ships);
-    console.log(`${length}, (${position.row},${position.column}), ${orientation}`);
     let board = this.board.board;
     if (orientation == 'horizontal') {
-      if (position.column < length) return true;
-      for (let i = position.column; i > position.column - length; i--) {
+      if (position.column < length - 1) return true;
+      for (let i = position.column; i > parseInt(position.column) - parseInt(length); i--) {
         if (board[position.row][i] > 0) return true;
       }
     }
     if (orientation == 'vertical') {
-      if ((9 - position.row) < length) return true;
-      for (let i = position.row; i < position.row + length; i++) {
-        if (board[i][position.column] > 0) return true;
+      if ((9 - position.row) < length - 1) {
+        return true;
+      }
+      for (let i = position.row; i < parseInt(position.row) + parseInt(length); i++) {
+        if (board[i][position.column] > 0) {
+          return true;
+        }
       }
     }
     return false;
