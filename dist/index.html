@@ -9,11 +9,20 @@
 <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
 
 <body>
-  <div class='player-board-container'>
-    <button class='rotate'>rotate</button>
-    <div class='player-board board'></div>
+  <div class='game-container'>
+    <div class='title'>Battleship</div>
+    <div class='boards-container'>
+      <div class='player-board-container'>
+        <button class='rotate'>Rotate</button>
+        <div class='player-board board'></div>
+      </div>
+      <div class='cpu-board-container'>
+        <button class='cheat'>Cheat</button>
+        <div class='cpu-board board'></div>
+      </div>
+    </div>
+    <div class='announce-winner' style='visibility: hidden;'></div>
   </div>
-  <div class='cpu-board board'></div>
 
 </body>
 
