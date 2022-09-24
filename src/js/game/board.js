@@ -36,9 +36,6 @@ class Board {
         hit = true;
       }
     }
-    if (this.allShipsSunk()) {
-      this.gameOver();
-    }
     if (!hit) {
       this.board[row][column] = 3;
     }
@@ -57,9 +54,6 @@ class Board {
     return false;
   }
 
-  gameOver() {
-    console.log('Game Over!');
-  }
 }
 
 export default Board;
