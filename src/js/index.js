@@ -3,6 +3,9 @@ import Display from './domstuff/display.js';
 
 let display = new Display;
 display.loadBoards();
-display.cpuDisplayShips();
+document.querySelector('.cheat').addEventListener('click', () => {
+  display.cpuDisplayShips();
+  display.cheater = true;
+});
 
 display.rotate();
