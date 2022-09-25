@@ -8,7 +8,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
-    port: 9000,
+    port: 8080,
   },
   devtool: 'inline-source-map',
   module: {
