@@ -10,6 +10,7 @@ class Display {
     this.currentShipLength = 5;
     this.planningPhase = true;
     this.cheater = false;
+    this.gameComplete = false;
   }
 
   loadBoards() {
@@ -141,7 +142,7 @@ class Display {
               let cellsToBeHighlighted;
               try {
                 cellsToBeHighlighted = document.getElementsByClassName(`${i}${column}`)[0];
-                cellsToBeHighlighted.setAttribute('style', 'background-color: blue');
+                cellsToBeHighlighted.setAttribute('style', 'background-color: blue;');
                 cellsToBeHighlighted.classList.add('ship-cell');
               } catch (TypeError) { };
             }
@@ -181,6 +182,27 @@ class Display {
     }
   }
 
+  attackHover() {
+    let cpuBoard = document.querySelector('.cpu-board');
+    for (let i = 0; i < 10; i++) {
+      for (let j = 0; j < 10; j++) {
+        let currentCell = cpuBoard.getElementsByClassName(`${i}${j}`)[0];
+        currentCell.addEventListener('mouseover', () => {
+          if (this.cpuPlayer.board.board[i][j] < 1 && !this.gameComplete) {
+            console.log('happened');
+            currentCell.setAttribute('style', 'background-color: gray; overflow: hidden;');
+          }
+        })
+        currentCell.addEventListener('mouseout', () => {
+          if (this.cpuPlayer.board.board[i][j] < 1 && !this.gameComplete) {
+            currentCell.setAttribute('style', '');
+          }
+        })
+
+      }
+    }
+  }
+
   playerPlaceShip(row, column) {
     let coords = Coords(parseInt(row), parseInt(column));
     let thisShip = new Ship(this.currentShipLength, coords, this.orientation);
@@ -197,6 +219,7 @@ class Display {
   }
 
   attackPhase() {
+    this.attackHover();
     let cpuBoard = document.querySelector('.cpu-board');
     let gameOver = (!this.player.board.allShipsSunk() &&
       !this.cpuPlayer.board.allShipsSunk());
@@ -221,6 +244,7 @@ class Display {
               this.refreshCells();
               if (this.player.board.allShipsSunk() ||
                 this.cpuPlayer.board.allShipsSunk()) {
+                this.gameComplete = true;
                 this.gameOver();
               }
             }
@@ -257,7 +281,6 @@ class Display {
       realWinnerMessage.innerHTML = 'Without cheating!';
       let container = document.querySelector('.game-container');
       container.appendChild(realWinnerMessage);
-
     }
     if (this.cheater) {
       let cheaterMessage = document.createElement('div');
@@ -265,7 +288,6 @@ class Display {
       let container = document.querySelector('.game-container');
       container.appendChild(cheaterMessage);
     }
-
     announceWinner.style.visibility = 'visible';
   }
 }
