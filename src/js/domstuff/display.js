@@ -48,7 +48,7 @@ class Display {
               try {
                 let cellsToBeHighlighted = document.getElementsByClassName(`${row}${i}`)[0];
                 if (!cellsToBeHighlighted.classList.contains('ship-cell')) {
-                  cellsToBeHighlighted.setAttribute('style', 'background-color: purple');
+                  cellsToBeHighlighted.setAttribute('style', 'background-color: #3580c2');
                 }
               } catch (TypeError) { };
             }
@@ -80,7 +80,7 @@ class Display {
             for (let i = row; i < parseInt(row) + parseInt(this.currentShipLength); i++) {
               try {
                 let cellsToBeHighlighted = document.getElementsByClassName(`${i}${column}`)[0];
-                cellsToBeHighlighted.setAttribute('style', 'background-color: purple');
+                cellsToBeHighlighted.setAttribute('style', 'background-color: #3580c2');
               } catch (TypeError) { };
             }
           }
@@ -119,7 +119,7 @@ class Display {
               let cellsToBeHighlighted;
               try {
                 cellsToBeHighlighted = document.getElementsByClassName(`${row}${i}`)[0];
-                cellsToBeHighlighted.setAttribute('style', 'background-color: blue');
+                cellsToBeHighlighted.setAttribute('style', 'background-color: #97fe7c');
                 cellsToBeHighlighted.classList.add('ship-cell');
               } catch (TypeError) { };
             }
@@ -142,7 +142,7 @@ class Display {
               let cellsToBeHighlighted;
               try {
                 cellsToBeHighlighted = document.getElementsByClassName(`${i}${column}`)[0];
-                cellsToBeHighlighted.setAttribute('style', 'background-color: blue;');
+                cellsToBeHighlighted.setAttribute('style', 'background-color: #97fe7c');
                 cellsToBeHighlighted.classList.add('ship-cell');
               } catch (TypeError) { };
             }
@@ -233,11 +233,11 @@ class Display {
             let board = this.cpuPlayer.board.board;
             if (!(board[i][j] == 2 || board[i][j] == 3)) {
               if (board[i][j] == 1) {
-                e.target.setAttribute('style', 'background-color: red');
+                e.target.setAttribute('style', 'background-color: #fb6a6a');
                 this.cpuPlayer.board.receiveAttack(Coords(i, j));
               }
               if (board[i][j] == 0) {
-                e.target.setAttribute('style', 'background-color: gray');
+                e.target.setAttribute('style', 'background-color: #a8a8a8');
                 this.cpuPlayer.board.receiveAttack(Coords(i, j));
               }
               this.player.computerAttack();
@@ -261,13 +261,13 @@ class Display {
         let currentCell = playerBoard.getElementsByClassName(`${i}${j}`)[0];
         let board = this.player.board.board;
         if (board[i][j] == 3) {
-          currentCell.setAttribute('style', 'background-color: gray');
+          currentCell.setAttribute('style', 'background-color: #a8a8a8');
         }
         if (board[i][j] == 2) {
-          currentCell.setAttribute('style', 'background-color: red');
+          currentCell.setAttribute('style', 'background-color: #fb6a6a');
         }
         if (board[i][j] == 1) {
-          currentCell.setAttribute('style', 'background-color: blue');
+          currentCell.setAttribute('style', 'background-color: #97fe7c');
         }
       }
     }
