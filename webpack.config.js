@@ -26,17 +26,17 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    publicPath: "/battleship/",
     // publicPath: "/",
   },
   optimization: {
     runtimeChunk: 'single',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'battleship',
-      template: './src/template.html',
-    })
-  ],
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     title: 'battleship',
+  //     template: './src/template.html',
+  //   })
+  // ],
 }
 
