@@ -6,7 +6,8 @@
     "test": "jest",
     "build": "webpack",
     "watch": "webpack --watch",
-    "dev": "webpack serve --open"
+    "dev": "webpack serve --open",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -113,6 +114,7 @@
     "function-bind": "^1.1.1",
     "get-intrinsic": "^1.1.2",
     "get-stream": "^6.0.1",
+    "gh-pages": "^4.0.0",
     "glob": "^7.2.3",
     "glob-parent": "^5.1.2",
     "glob-to-regexp": "^0.4.1",
