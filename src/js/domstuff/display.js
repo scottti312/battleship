@@ -188,15 +188,21 @@ class Display {
       for (let j = 0; j < 10; j++) {
         let currentCell = cpuBoard.getElementsByClassName(`${i}${j}`)[0];
         currentCell.addEventListener('mouseover', () => {
-          if (this.cpuPlayer.board.board[i][j] < 1 && !this.gameComplete) {
-            console.log('happened');
+          if (this.cpuPlayer.board.board[i][j] < 2 && !this.gameComplete) {
             currentCell.setAttribute('style', 'background-color: gray; overflow: hidden;');
           }
         })
         currentCell.addEventListener('mouseout', () => {
-          if (this.cpuPlayer.board.board[i][j] < 1 && !this.gameComplete) {
+          if (this.cpuPlayer.board.board[i][j] < 2 && !this.gameComplete && !this.cheater) {
             currentCell.setAttribute('style', '');
           }
+          if (this.cpuPlayer.board.board[i][j] == 1 && !this.gameComplete && this.cheater) {
+            currentCell.setAttribute('style', 'background-color: black; overflow:hidden;')
+          }
+          if (this.cpuPlayer.board.board[i][j] == 0 && !this.gameComplete && this.cheater) {
+            currentCell.setAttribute('style', '');
+          }
+
         })
 
       }
