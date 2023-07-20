@@ -45,3 +45,12 @@ body {
 .ship-cell {
   background-color: #97fe7c;
 }
+
+.footer {
+  position: absolute;
+  bottom: 50px;
+}
+
+.footer a {
+  color: black;
+}
